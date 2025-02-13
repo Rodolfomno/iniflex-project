@@ -1,4 +1,8 @@
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Main {
@@ -54,6 +58,16 @@ public class Main {
 
         System.out.println("\nFuncionários agrupados por função: \n");
         printWorkerByFunction();
+
+        //3.8 – Imprimir os funcionários que fazem aniversário no mês 10 e 12.
+
+        printWorkersBirthdayBy10and12();
+
+        //3.9 – Imprimir o funcionário com a maior idade, exibir os atributos: nome e idade.
+
+        Worker funcionarioMaiorIdade = funcionarioMaiorIdade();
+        System.out.println("\nFuncionário com maior idade: \n");
+        System.out.println("Nome: " + funcionarioMaiorIdade.getName() + ", idade: " + funcionarioMaiorIdade.ageCalc() + " anos.");
     }
 
     public static void printWorkers(){
@@ -88,5 +102,21 @@ public class Main {
                 System.out.println("        " + funcionario);
             }
         }
+    }
+
+    public static void printWorkersBirthdayBy10and12(){
+        List<Worker> birthdays = new ArrayList<>();
+        for(Worker worker: workers){
+            Month birthDayMonth = LocalDate.parse(worker.getBirthDate(), DateTimeFormatter.ofPattern("dd/MM/yyyy")).getMonth();
+            if(birthDayMonth.equals(Month.OCTOBER) || birthDayMonth.equals(Month.DECEMBER)){
+                birthdays.add(worker);
+            }
+        }
+        System.out.println("\nAniversariantes dos Meses 10 e 12: \n");
+        birthdays.forEach(System.out::println);
+    }
+
+    public static Worker funcionarioMaiorIdade(){
+        return workers.stream().max(Comparator.comparing(Worker::ageCalc)).get();
     }
 }
