@@ -8,12 +8,6 @@ Este repositório contém a implementação do teste prático solicitado. O obje
 
 - Java 17+
 
-- Maven (para gerenciamento de dependências)
-
-- Lombok (para reduzir boilerplate code)
-
-- Streams API e Collections (para manipulação de dados)
-
 - BigDecimal (para cálculo preciso de salários)
 
 - LocalDate (para manipulação de datas)
