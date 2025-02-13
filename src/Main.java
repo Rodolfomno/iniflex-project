@@ -3,6 +3,7 @@ import java.util.*;
 
 public class Main {
     public static List<Worker> workers = new ArrayList<>();
+    public static Map<String, List<Worker>> workersByFunctionMap = new TreeMap<>();
     public static String[][] workersData = {
             {"Maria","18/10/2000","2009.44","Operador"},
             {"João","12/05/1990","2284.38","Operador"},
@@ -44,6 +45,15 @@ public class Main {
         raiseWorkerSalaryByPercentage(10.0);
         System.out.println("\nFuncionários com reajuste de 10% no salário: \n");
         printWorkers();
+
+        //3.5 – Agrupar os funcionários por função em um MAP, sendo a chave a “função” e o valor a “lista de funcionários”.
+
+        groupWorkersByFunctionMap();
+
+        //3.6 - Imprimir os funcionários, agrupados por função.
+
+        System.out.println("\nFuncionários agrupados por função: \n");
+        printWorkerByFunction();
     }
 
     public static void printWorkers(){
@@ -59,5 +69,24 @@ public class Main {
             var actualSalary = worker.getSalary();
             worker.setSalary(actualSalary.multiply(new BigDecimal(1 + percentage/100)));
         });
+    }
+
+    public static void groupWorkersByFunctionMap(){
+        for(Worker worker: workers){
+            String function = worker.getFunction();
+            if(!workersByFunctionMap.containsKey(function)){
+                workersByFunctionMap.put(function, new ArrayList<>());
+            }
+            workersByFunctionMap.get(function).add(worker);
+        }
+    }
+
+    public static void printWorkerByFunction(){
+        for (Map.Entry<String, List<Worker>> entry: workersByFunctionMap.entrySet()){
+            System.out.println("Função: " + entry.getKey());
+            for (Worker funcionario: entry.getValue()){
+                System.out.println("        " + funcionario);
+            }
+        }
     }
 }
