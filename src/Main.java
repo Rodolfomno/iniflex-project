@@ -114,8 +114,8 @@ public class Main {
     public static void printWorkerByFunction(){
         for (Map.Entry<String, List<Worker>> entry: workersByFunctionMap.entrySet()){
             System.out.println("Função: " + entry.getKey());
-            for (Worker funcionario: entry.getValue()){
-                System.out.println("        " + funcionario);
+            for (Worker worker: entry.getValue()){
+                System.out.println("        " + worker);
             }
         }
     }
