@@ -8,9 +8,6 @@ public class Worker extends Person {
     private BigDecimal salary;
     private String function;
 
-
-    public Worker(){
-    }
     public Worker(String name, String birthDate, BigDecimal salary, String function) {
         super(name, birthDate);
         this.salary = salary;
@@ -43,7 +40,7 @@ public class Worker extends Person {
         return ChronoUnit.YEARS.between(birthDate, LocalDate.now());
     }
 
-    public double calcularQuantidadeSalariosMinimos(){
+    public double calcMinSalary(){
         return this.getSalary().divide(MIN_SALARY, 2).doubleValue();
 
     }

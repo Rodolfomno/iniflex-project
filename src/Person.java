@@ -40,8 +40,8 @@ public class Person {
         return LocalDate.parse(dataString, DATE_FORMAT);
     }
 
-    public String convertLocalDateToString(LocalDate data){
-        return data.format(DATE_FORMAT);
+    public String convertLocalDateToString(LocalDate date){
+        return date.format(DATE_FORMAT);
     }
 }
 

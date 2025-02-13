@@ -78,6 +78,12 @@ public class Main {
         //3.11 – Imprimir o total dos salários dos funcionários.
 
         System.out.println("\nO valor total do salários dos funcionários é de: R$" + bigDecimalFormater(wokersTotalSalary()));
+
+        //3.12 – Imprimir quantos salários mínimos ganha cada funcionário, considerando que o salário mínimo é R$1212.00.
+
+        System.out.println("\nLista de funcionários e quantidade de salários mínimos: \n");
+
+        printTotalOfMinSalaryOfWorkers();
     }
 
     public static void printWorkers(){
@@ -142,9 +148,15 @@ public class Main {
         return total;
     }
 
-    public static String bigDecimalFormater(BigDecimal valor){
+    public static String bigDecimalFormater(BigDecimal value){
         DecimalFormat formater = new DecimalFormat("#,###.00");
-        return formater.format(valor);
+        return formater.format(value);
+    }
+
+    public static void printTotalOfMinSalaryOfWorkers(){
+        for (Worker worker: workers){
+            System.out.printf("Nome: %s , Salários Mínimos: %.1f\n", worker.getName(), worker.calcMinSalary());
+        }
     }
 
 }
