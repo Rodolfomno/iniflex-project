@@ -6,7 +6,7 @@ Este repositório contém a implementação do teste prático solicitado. O obje
 
 ## Tecnologias Utilizadas
 
-- Java 11+
+- Java 17+
 
 - Maven (para gerenciamento de dependências)
 
