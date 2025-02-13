@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Este repositório contém a implementação do teste prático solicitado pela Iniflex. O objetivo é desenvolver um projeto em Java que manipule informações de pessoas e funcionários conforme os requisitos especificados.
+Este repositório contém a implementação do teste prático solicitado. O objetivo é desenvolver um projeto em Java que manipule informações de pessoas e funcionários conforme os requisitos especificados.
 
 ## Tecnologias Utilizadas
 
