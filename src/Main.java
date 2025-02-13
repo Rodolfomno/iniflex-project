@@ -3,7 +3,6 @@ import java.util.*;
 
 public class Main {
     public static List<Worker> workers = new ArrayList<>();
-    public static Map<String, List<Worker>> funcionariosPorFuncaoMap = new TreeMap<>();
     public static String[][] workersData = {
             {"Maria","18/10/2000","2009.44","Operador"},
             {"João","12/05/1990","2284.38","Operador"},
