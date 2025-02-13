@@ -30,14 +30,34 @@ public class Main {
         //3.2 – Remover o funcionário “João” da lista.
 
         removeWorkerByName("João");
+
+        //3.3 – Imprimir todos os funcionários com todas suas informações, sendo que:
+        //• informação de data deve ser exibido no formato dd/mm/aaaa;
+        //• informação de valor numérico deve ser exibida no formatado com separador de milhar como ponto e decimal como vírgula.
+
+        System.out.println("\nLista de Funcionários após remoção de funcionário 'João':\n");
+        printWorkers();
+
+
+        //3.4 – Os funcionários receberam 10% de aumento de salário, atualizar a lista de funcionários com novo valor.
+
+        raiseWorkerSalaryByPercentage(10.0);
+        System.out.println("\nFuncionários com reajuste de 10% no salário: \n");
+        printWorkers();
     }
 
     public static void printWorkers(){
-        System.out.println("3.1 – Inserir todos os funcionários, na mesma ordem e informações da tabela acima. \n");
         workers.forEach(System.out::println);
     }
 
     public static void removeWorkerByName(String name){
         workers.removeIf(worker -> worker.getName().equalsIgnoreCase(name));
+    }
+
+    public static void raiseWorkerSalaryByPercentage(Double percentage){
+        workers.forEach(worker -> {
+            var actualSalary = worker.getSalary();
+            worker.setSalary(actualSalary.multiply(new BigDecimal(1 + percentage/100)));
+        });
     }
 }
