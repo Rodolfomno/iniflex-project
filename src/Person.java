@@ -22,11 +22,11 @@ public class Person {
         this.name = name;
     }
 
-    public String getBornDate() {
+    public String getBirthDate() {
         return this.convertLocalDateToString(birthDate);
     }
 
-    public void setDataNascimento(String birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = this.convertStrintToLocalDate(birthDate);
     }
 
