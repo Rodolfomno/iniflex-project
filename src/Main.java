@@ -68,6 +68,16 @@ public class Main {
         Worker funcionarioMaiorIdade = funcionarioMaiorIdade();
         System.out.println("\nFuncionário com maior idade: \n");
         System.out.println("Nome: " + funcionarioMaiorIdade.getName() + ", idade: " + funcionarioMaiorIdade.ageCalc() + " anos.");
+
+        //3.10 – Imprimir a lista de funcionários por ordem alfabética.
+
+        System.out.println("\nLista de funcionários em ordem alfabética: \n");
+        workersByName();
+        printWorkers();
+
+        //3.11 – Imprimir o total dos salários dos funcionários.
+
+        System.out.println("\nO valor total do salários dos funcionários é de: R$" + bigDecimalFormater(wokersTotalSalary()));
     }
 
     public static void printWorkers(){
@@ -119,4 +129,22 @@ public class Main {
     public static Worker funcionarioMaiorIdade(){
         return workers.stream().max(Comparator.comparing(Worker::ageCalc)).get();
     }
+
+    public static void workersByName (){
+        workers.sort(Comparator.comparing(Person::getName));
+    }
+
+    public static BigDecimal wokersTotalSalary(){
+        BigDecimal total = BigDecimal.ZERO;
+        for(Worker worker: workers){
+            total = total.add(worker.getSalary());
+        }
+        return total;
+    }
+
+    public static String bigDecimalFormater(BigDecimal valor){
+        DecimalFormat formater = new DecimalFormat("#,###.00");
+        return formater.format(valor);
+    }
+
 }
