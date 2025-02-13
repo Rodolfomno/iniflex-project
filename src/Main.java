@@ -18,15 +18,26 @@ public class Main {
 
     public static void main(String[] args) {
 
-        for(String[] dadosFuncionario: workersData){
-            Worker funcionario = new Worker(dadosFuncionario[0],dadosFuncionario[1],new BigDecimal(dadosFuncionario[2]),dadosFuncionario[3]);
-            workers.add(funcionario);
+        // 3.1 – Inserir todos os funcionários, na mesma ordem e informações da tabela acima.
+
+        for(String[] workersData: workersData){
+            Worker worker = new Worker(workersData[0],workersData[1],new BigDecimal(workersData[2]),workersData[3]);
+            workers.add(worker);
         }
         System.out.println("Lista de funcionários: \n");
         printWorkers();
+
+        //3.2 – Remover o funcionário “João” da lista.
+
+        removeWorkerByName("João");
     }
 
     public static void printWorkers(){
+        System.out.println("3.1 – Inserir todos os funcionários, na mesma ordem e informações da tabela acima. \n");
         workers.forEach(System.out::println);
+    }
+
+    public static void removeWorkerByName(String name){
+        workers.removeIf(worker -> worker.getName().equalsIgnoreCase(name));
     }
 }
