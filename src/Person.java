@@ -11,7 +11,7 @@ public class Person {
 
     public Person(String name, String birthDate) {
         this.name = name;
-        this.birthDate = this.converterStringParaLocalDate(birthDate);
+        this.birthDate = this.convertStrintToLocalDate(birthDate);
     }
 
     public String getName() {
@@ -23,24 +23,24 @@ public class Person {
     }
 
     public String getBornDate() {
-        return this.convertDateToString(birthDate);
+        return this.convertLocalDateToString(birthDate);
     }
 
     public void setDataNascimento(String birthDate) {
-        this.birthDate = this.converterStringParaLocalDate(birthDate);
+        this.birthDate = this.convertStrintToLocalDate(birthDate);
     }
 
     @Override
     public String toString() {
         return "nome='" + name + '\'' +
-                ", dataNascimento=" + this.convertDateToString(this.birthDate) + ".";
+                ", dataNascimento=" + this.convertLocalDateToString(this.birthDate) + ".";
     }
 
-    public LocalDate converterStringParaLocalDate(String dataString){
+    public LocalDate convertStrintToLocalDate(String dataString){
         return LocalDate.parse(dataString, DATE_FORMAT);
     }
 
-    public String convertDateToString(LocalDate data){
+    public String convertLocalDateToString(LocalDate data){
         return data.format(DATE_FORMAT);
     }
 }
